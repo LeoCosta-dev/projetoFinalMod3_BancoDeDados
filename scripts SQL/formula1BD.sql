@@ -1,5 +1,11 @@
 CREATE DATABASE FORMULA1;
 USE FORMULA1;
+CREATE TABLE `status_Id`(
+  `status_Id` INT NOT NULL,
+  `status` VARCHAR(100) NOT NULL,
+  PRIMARY KEY(`status_Id`)
+);
+
 CREATE TABLE `circuitos`(
 `circuito_Id` INT NOT NULL,
 `circuit_ref` VARCHAR(100) NOT NULL,
