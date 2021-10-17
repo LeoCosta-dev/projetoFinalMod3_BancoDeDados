@@ -105,3 +105,8 @@ FOREIGN KEY(`corrida_Id`) REFERENCES `corridas`(`corrida_Id`),
 FOREIGN KEY(`piloto_Id`) REFERENCES `pilotos`(`piloto_Id`)
 );
 
+CREATE TABLE `temporada`(
+`ano` INT NOT NULL,
+`url` VARCHAR(100) NOT NULL,
+PRIMARY KEY(`ano`)
+);
