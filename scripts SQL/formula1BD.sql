@@ -67,6 +67,19 @@ CREATE TABLE `pilotos`(
 `nascimento` VARCHAR(10) NOT NULL,
 `nacionalidade` VARCHAR(100) NOT NULL,
 `url` VARCHAR(100) NOT NULL,
-PRIMARY KEY(`piloto_id`),
+PRIMARY KEY(`piloto_Id`),
 PRIMARY KEY(`pilotoRef`)
 );
+
+CREATE TABLE `classificação_Pilotos`(
+`classificaçãoPilotos_Id` INT NOT NULL,
+`corrida_Id` INT NOT NULL,
+`piloto_Id` INT NOT NULL,
+`pontos` INT NOT NULL,
+`posição` INT NOT NULL,
+`vitórias` INT NOT NULL,
+PRIMARY KEY(`classificaçãoPilotos_Id`),
+FOREIGN KEY(`corrida_Id`) REFERENCES `corridas`(`corrida_Id`),
+FOREIGN KEY(`piloto_Id`) REFERENCES `pilotos`(`piloto_Id`)
+);
+
