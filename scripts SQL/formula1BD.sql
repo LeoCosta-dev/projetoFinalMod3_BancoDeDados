@@ -47,7 +47,7 @@ FOREIGN KEY(`corrida_Id`) REFERENCES `corridas`(`corrida_Id`),
 FOREIGN KEY(`constructor_Id`) REFERENCES `constructores`(`constructor_Id`)
 );
 
-CREATE TABLE `constructorResultados`(
+CREATE TABLE `constructor_Resultados`(
 `constructorResultados` INT NOT NULL,
 `corrida_Id`INT NOT NULL,
 `constructor_Id` INT NOT NULL,
