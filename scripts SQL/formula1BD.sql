@@ -77,6 +77,22 @@ PRIMARY KEY(`piloto_Id`),
 PRIMARY KEY(`pilotoRef`)
 );
 
+CREATE TABLE `qualificatória`(
+`qualificação_Id` INT NOT NULL,
+`corrida_Id` INT NOT NULL,
+`piloto_Id` INT NOT NULL,
+`constructor_Id` INT NOT NULL,
+`número` INT NOT NULL,
+`posição` INT NOT NULL,
+`q1` VARCHAR(8),
+`q2` VARCHAR(8),
+`q3` VARCHAR(8),
+PRIMARY KEY(`qualificação_Id`),
+FOREIGN KEY(`corrida_Id`) REFERENCES `corridas`(`corrida_Id`),
+FOREIGN KEY(`piloto_Id`) REFERENCES `pilotos`(`piloto_Id`),
+FOREIGN KEY(`constructor_Id`) REFERENCES`constructores`(`constructor_Id`)
+);
+
 CREATE TABLE `classificação_Pilotos`(
 `classificaçãoPilotos_Id` INT NOT NULL,
 `corrida_Id` INT NOT NULL,
@@ -88,3 +104,4 @@ PRIMARY KEY(`classificaçãoPilotos_Id`),
 FOREIGN KEY(`corrida_Id`) REFERENCES `corridas`(`corrida_Id`),
 FOREIGN KEY(`piloto_Id`) REFERENCES `pilotos`(`piloto_Id`)
 );
+
