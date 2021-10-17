@@ -1,9 +1,9 @@
 CREATE DATABASE FORMULA1;
 USE FORMULA1;
 CREATE TABLE `status_Id`(
-  `status_Id` INT NOT NULL,
-  `status` VARCHAR(100) NOT NULL,
-  PRIMARY KEY(`status_Id`)
+`status_Id` INT NOT NULL,
+`status` VARCHAR(100) NOT NULL,
+PRIMARY KEY(`status_Id`)
 );
 
 CREATE TABLE `circuitos`(
@@ -88,4 +88,3 @@ PRIMARY KEY(`classificaçãoPilotos_Id`),
 FOREIGN KEY(`corrida_Id`) REFERENCES `corridas`(`corrida_Id`),
 FOREIGN KEY(`piloto_Id`) REFERENCES `pilotos`(`piloto_Id`)
 );
-
