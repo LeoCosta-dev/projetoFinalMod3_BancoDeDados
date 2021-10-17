@@ -23,7 +23,7 @@ PRIMARY KEY(`constructor_Id`)
 );
 
 CREATE TABLE `corridas`(
-`corrida_Id` VARCHAR(100) NOT NULL,
+`corrida_Id` INT NOT NULL,
 `ano` INT NOT NULL,
 `round` INT NOT NULL,
 `circuito_id` INT NOT NULL,
@@ -35,6 +35,17 @@ PRIMARY KEY(`corrida_Id`),
 FOREIGN KEY(`circuito_id`) REFERENCES `circuitos`(`circuito_id`)
 );
 
+CREATE TABLE `classificação_constructores`(
+`constructorStandingsId` INT NOT NULL,
+`corrida_Id` INT NOT NULL,
+`constructor_Id` INT NOT NULL,
+`pontos` INT NOT NULL,
+`posição` INT NOT NULL,
+`vitórias` INT NOT NULL,
+PRIMARY KEY(`constructorStandingsId`),
+FOREIGN KEY(`corrida_Id`) REFERENCES `corridas`(`corrida_Id`),
+FOREIGN KEY(`constructor_Id`) REFERENCES `constructores`(`constructor_Id`)
+);
 
 CREATE TABLE `constructorResultados`(
 `constructorResultados` INT NOT NULL,
