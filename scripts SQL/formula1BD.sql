@@ -16,8 +16,7 @@ CREATE TABLE `circuitos`(
 `longitude`INT NOT NULL,
 `alt` INT NOT NULL,
 `url` VARCHAR(100) NOT NULL,
-PRIMARY KEY(`circuito_id`),
-PRIMARY KEY(`circuit_ref`)
+PRIMARY KEY(`circuito_id`)
 );
 
 CREATE TABLE `constructores`(
@@ -58,7 +57,7 @@ CREATE TABLE `constructor_Resultados`(
 `corrida_Id`INT NOT NULL,
 `constructor_Id` INT NOT NULL,
 `pontos` INT NOT NULL,
-PRIMARY KEY(`constructorResutados`),
+PRIMARY KEY(`constructorResultados`),
 FOREIGN KEY(`constructor_Id`) REFERENCES `constructores`(`constructor_Id`),
 FOREIGN KEY(`corrida_Id`) REFERENCES `corridas`(`corrida_Id`)
 );
@@ -73,8 +72,7 @@ CREATE TABLE `pilotos`(
 `nascimento` VARCHAR(10) NOT NULL,
 `nacionalidade` VARCHAR(100) NOT NULL,
 `url` VARCHAR(100) NOT NULL,
-PRIMARY KEY(`piloto_Id`),
-PRIMARY KEY(`pilotoRef`)
+PRIMARY KEY(`piloto_Id`)
 );
 
 CREATE TABLE `qualificatória`(
