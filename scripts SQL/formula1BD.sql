@@ -99,10 +99,13 @@ FOREIGN KEY(corrida_Id) REFERENCES corridas(race_Id),
 FOREIGN KEY(piloto_Id) REFERENCES pilotos(piloto_Id)
 );
 
-CREATE TABLE temporadas(
-   ano INTEGER  NOT NULL,
-   url VARCHAR(68) NOT NULL,
-PRIMARY KEY(ano)
+CREATE TABLE temporadas (
+    ano INTEGER NOT NULL,
+    url VARCHAR(68) NOT NULL,
+    PRIMARY KEY (ano)
 );
+
+
+
 
 
