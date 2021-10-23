@@ -126,3 +126,28 @@ FROM
             AND b.circuito_Id LIKE d.circuito_Id) AS adelaide
 GROUP BY nome
 ORDER BY COUNT(nome) desc LIMIT 10;
+
+
+-- Em quais circuitos os pilotos brasileiros tiveram mais vitórias?
+
+SELECT * FROM pilotos;
+SELECT 
+    COUNT(nome), nome
+FROM
+    (SELECT 
+        a.corrida_Id,
+            a.piloto_Id,
+            a.posição,
+            b.circuito_Id,
+            d.nome,
+            c.código
+    FROM
+        classificação_Pilotos AS a
+    INNER JOIN corridas AS b, pilotos AS c, circuitos AS d
+    WHERE
+        posição LIKE 1
+            AND a.corrida_Id LIKE b.race_Id
+            AND c.nacionalidade LIKE 'brazilian'
+            AND b.circuito_Id LIKE d.circuito_Id) AS adelaide
+GROUP BY nome
+ORDER BY COUNT(nome) desc LIMIT 10;
