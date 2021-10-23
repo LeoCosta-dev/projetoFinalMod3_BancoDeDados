@@ -82,7 +82,23 @@ WHERE
     ano >= 2000 AND ano < 2010
 ORDER BY ano ASC;
 
+-- Quantos construtores tiveram pelo menos 5 vitorias em silverstone?
+ 
+ With VI AS (
+ SELECT
+    count(constructor_id) AS contador, corrida_Id
+ 
+ FROM
+    classificação_constructores AS cl 
+ 
+ WHERE cl.vitórias >= 5
+ GROUP BY corrida_Id)
+ SELECT 
+  sum(contador) AS soma, ci.nome
+ FROM 
+ VI
+ INNER JOIN corridas AS cor ON cor.race_Id = VI.corrida_Id
+ INNER JOIN circuitos AS ci ON ci.circuito_Id= cor.circuito_Id
+ GROUP BY ci.nome
+ HAVING ci.nome = 'Silverstone Circuit';
 
-
--- USE t8grupo9;
--- select * from corridas;
