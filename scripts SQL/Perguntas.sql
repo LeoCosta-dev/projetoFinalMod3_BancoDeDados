@@ -151,3 +151,35 @@ FROM
             AND b.circuito_Id LIKE d.circuito_Id) AS adelaide
 GROUP BY nome
 ORDER BY COUNT(nome) desc LIMIT 10;
+
+-- Quantidade de corredores nascidos em cada década?
+
+SELECT 
+    COUNT(nascimento),
+    CASE
+        WHEN YEAR(nascimento) > 1990 THEN 'Década de 1990'
+        WHEN YEAR(nascimento) > 1980 THEN 'Década de 1980'
+        WHEN YEAR(nascimento) > 1970 THEN 'Década de 1970'
+        WHEN YEAR(nascimento) > 1960 THEN 'Decada de 1960'
+        WHEN YEAR(nascimento) > 1950 THEN 'Década de 1950'
+        WHEN YEAR(nascimento) > 1940 THEN 'Década de 1940'
+        WHEN YEAR(nascimento) > 1930 THEN 'Década de 1930'
+        WHEN YEAR(nascimento) > 1920 THEN 'Década de 1920'
+        WHEN YEAR(nascimento) > 1910 THEN 'Década de 1910'
+        WHEN YEAR(nascimento) > 1900 THEN 'Década de 1900 - Inicío do Século'
+        ELSE 'Nascidos no século passado'
+    END AS decadas
+FROM
+    pilotos
+GROUP BY decadas
+ORDER BY decadas ASC;
+
+-- Qual construtora conseguiu mais vice-campeonatos?
+
+SELECT
+con.nome, posição, count(con.nome) as vasco
+From classificação_constructores as cl,
+construtores as con
+WHERE cl.constructor_Id = con.constructor_Id and posição =2
+Group by cl.constructor_Id
+Order by vasco DESC;
