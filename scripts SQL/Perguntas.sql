@@ -183,3 +183,19 @@ construtores as con
 WHERE cl.constructor_Id = con.constructor_Id and posição =2
 Group by cl.constructor_Id
 Order by vasco DESC;
+
+-- Quantidade de corridas por décadas?
+
+SELECT 
+    COUNT(datas),
+    CASE
+        WHEN YEAR(datas) between 2000 and 2010 then 'Década de 2000'
+        WHEN YEAR(datas) between 1990 and 2000 then 'Década de 1990'
+        WHEN YEAR(datas) between 1980 and 1990 then 'Década de 1980'
+        WHEN YEAR(datas) between 1970 and 1980 then 'Década de 1970'
+        ELSE "Outros"
+    END AS decadas
+FROM
+    corridas
+GROUP BY decadas
+ORDER BY decadas ASC;
