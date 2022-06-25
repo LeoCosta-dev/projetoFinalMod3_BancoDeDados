@@ -1,4 +1,4 @@
-# Projeto de encerramento do módulo 2 - Visualização de dados
+# Projeto de encerramento do módulo 3 - Visualização de dados
 
 **Introdução:**
 
